@@ -12,6 +12,10 @@ class _HomeState extends State<Home> {
     return WillPopScope(
       onWillPop: () => Future.value(false),
       child: Scaffold(
+        appBar: AppBar(
+          backgroundColor: Color(0xff14A76C),
+          elevation: 0,
+        ),
         backgroundColor: Colors.white,
         body: HomeBody(),
       ),

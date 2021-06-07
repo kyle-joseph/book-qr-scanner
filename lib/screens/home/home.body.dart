@@ -11,24 +11,21 @@ class HomeBody extends StatelessWidget {
             Container(
               margin: EdgeInsets.only(bottom: 70),
               width: double.infinity,
-              padding: EdgeInsets.symmetric(
-                vertical: 40,
-                horizontal: 20,
-              ),
+              padding: EdgeInsets.fromLTRB(50, 20, 50, 50),
               decoration: BoxDecoration(
-                  color: Color(0xff5253ED),
+                  color: Color(0xff14A76C),
                   borderRadius: BorderRadius.only(
                     bottomLeft: Radius.circular(40),
                     bottomRight: Radius.circular(40),
                   )),
               child: Text(
-                "Welcome to  VTrace",
+                "BOOK SCANNER",
                 textAlign: TextAlign.center,
                 style: GoogleFonts.nunito(
                   textStyle: TextStyle(
                     color: Colors.white,
                     fontWeight: FontWeight.w800,
-                    fontSize: 40,
+                    fontSize: 50,
                   ),
                 ),
               ),
@@ -38,7 +35,6 @@ class HomeBody extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   homeButton(context, 'Scan QR', '/scan', Icons.qr_code),
-                  homeButton(context, 'View Logs', '/logs', Icons.list_rounded)
                 ],
               ),
             )
@@ -66,13 +62,13 @@ class HomeBody extends StatelessWidget {
         icon: Icon(
           icon,
           size: 45,
-          color: Color(0xff5253ED),
+          color: Color(0xff14A76C),
         ),
         label: Text(
           title,
           style: GoogleFonts.nunito(
             textStyle: TextStyle(
-              color: Color(0xff5253ED),
+              color: Color(0xff14A76C),
               fontWeight: FontWeight.w800,
               fontSize: 25,
             ),

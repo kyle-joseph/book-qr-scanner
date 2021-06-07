@@ -1,3 +1,5 @@
+// @dart=2.9
+
 import 'package:book_qr_scanner/screens/home/home.dart';
 import 'package:flutter/material.dart';
 
