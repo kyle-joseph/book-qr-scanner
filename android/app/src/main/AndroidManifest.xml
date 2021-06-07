@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.book_qr_scanner">
    <application
-        android:label="book_qr_scanner"
+        android:label="Book Scanner"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"

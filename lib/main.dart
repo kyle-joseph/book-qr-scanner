@@ -1,6 +1,7 @@
 // @dart=2.9
 
 import 'package:book_qr_scanner/screens/home/home.dart';
+import 'package:book_qr_scanner/screens/scan/scan.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -13,11 +14,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'VTrace',
-      initialRoute: '/',
+      initialRoute: '/scan',
       routes: {
         '/': (context) => Home(),
-        // '/logs': (context) => Logs(),
-        // '/scan': (context) => Scan(),
+        '/scan': (context) => ScanComplete('Book Title'),
         // '/scanned': (context) => ScannedQR(),
       },
     );
