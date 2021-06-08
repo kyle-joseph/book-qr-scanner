@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 class ScanCompleteBody extends StatefulWidget {
   final String bookTitle;
@@ -11,7 +12,7 @@ class ScanCompleteBody extends StatefulWidget {
 
 class _ScanCompleteBodyState extends State<ScanCompleteBody> {
   Widget confirmCancelButton(BuildContext context, String title, IconData icon,
-      Color color, String route) {
+      Color color, String action) {
     return Container(
       margin: EdgeInsets.only(bottom: 30),
       height: 60,
@@ -23,9 +24,17 @@ class _ScanCompleteBodyState extends State<ScanCompleteBody> {
         elevation: 5,
         color: color,
         onPressed: () {
-          if (route != '/') {
-            Navigator.popAndPushNamed(context, route);
-          } else {
+          if (action == 'confirm') {
+            Navigator.pop(context);
+            Fluttertoast.showToast(
+                msg: "${widget.bookTitle} has been confirmed as returned",
+                toastLength: Toast.LENGTH_LONG,
+                gravity: ToastGravity.BOTTOM,
+                timeInSecForIosWeb: 1,
+                backgroundColor: color,
+                textColor: Colors.white,
+                fontSize: 16.0);
+          } else if (action == 'cancel') {
             Navigator.pop(context);
           }
         },
@@ -55,7 +64,7 @@ class _ScanCompleteBodyState extends State<ScanCompleteBody> {
         child: Column(
           children: [
             Container(
-              padding: EdgeInsets.fromLTRB(0, 20, 0, 20),
+              padding: EdgeInsets.fromLTRB(0, 20, 0, 10),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -72,18 +81,18 @@ class _ScanCompleteBodyState extends State<ScanCompleteBody> {
                 children: [
                   Container(
                     margin: EdgeInsets.only(
-                      bottom: 40,
+                      bottom: 30,
                     ),
                     child: Column(
                       children: [
                         Container(
                           child: Text(
-                            "Book Title",
+                            "Book Title:",
                             style: GoogleFonts.nunito(
                               textStyle: TextStyle(
                                 color: Color(0xff14A76C),
                                 fontWeight: FontWeight.w800,
-                                fontSize: 30,
+                                fontSize: 35,
                               ),
                             ),
                           ),
@@ -91,6 +100,7 @@ class _ScanCompleteBodyState extends State<ScanCompleteBody> {
                         Container(
                           child: Text(
                             widget.bookTitle,
+                            textAlign: TextAlign.center,
                             style: GoogleFonts.nunito(
                               textStyle: TextStyle(
                                 color: Color(0xff888888),
@@ -107,9 +117,9 @@ class _ScanCompleteBodyState extends State<ScanCompleteBody> {
                     child: Column(
                       children: [
                         confirmCancelButton(context, 'Confirm',
-                            Icons.check_circle, Color(0xff14A76C), '/return'),
+                            Icons.check_circle, Color(0xff14A76C), 'confirm'),
                         confirmCancelButton(context, 'Cancel', Icons.cancel,
-                            Color(0xffFC4445), '/'),
+                            Color(0xffFC4445), 'cancel'),
                       ],
                     ),
                   )

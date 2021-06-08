@@ -1,3 +1,4 @@
+import 'package:book_qr_scanner/screens/scan/scan.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
@@ -26,8 +27,6 @@ class _HomeBodyState extends State<HomeBody> {
     setState(() {
       _scanBarcode = barcodeScanRes;
     });
-
-    print(_scanBarcode);
   }
 
   Widget scanButton(BuildContext context, String title, IconData icon) {
@@ -42,8 +41,8 @@ class _HomeBodyState extends State<HomeBody> {
         elevation: 5,
         color: Color(0xff14A76C),
         onPressed: () async {
-          // await Navigator.popAndPushNamed(context, route);
           await scanQR();
+          await Navigator.pushNamed(context, '/scan', arguments: _scanBarcode);
         },
         icon: Icon(
           icon,

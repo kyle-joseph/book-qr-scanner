@@ -3,12 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class ScanComplete extends StatelessWidget {
-  final String bookTitle;
-
-  ScanComplete(this.bookTitle);
-
   @override
   Widget build(BuildContext context) {
+    var bookTitle = ModalRoute.of(context)!.settings.arguments;
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Color(0xff14A76C),
@@ -24,7 +21,7 @@ class ScanComplete extends StatelessWidget {
           ),
         ),
       ),
-      body: ScanCompleteBody('Book Title'),
+      body: ScanCompleteBody(bookTitle.toString()),
     );
   }
 }
